@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="snow"></div>
+<style>
+  body {
+    background-color: #2c3e50;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  .snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('flake.png'); /* картинка снежинки */
+    background-size: contain;
+    animation: snowfall 10s linear infinite;
+  }
+  @keyframes snowfall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+</style>
+
+</body>
+</html>
