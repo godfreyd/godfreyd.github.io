@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    /* Button styling */
+    .btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    /* Popup styling */
+    .popup {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(180deg, #28a745, #7cd97d);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    /* Duplicate button text */
+    .popup .popup-header {
+      padding: 5px 10px;
+      font-size: 12px;
+      color: white;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .popup .popup-header:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Options inside popup */
+    .popup a {
+      display: block;
+      padding: 8px 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .popup a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container" style="position: relative; display: inline-block;">
+    <button class="btn" id="freightButton">Add Freight Charges</button>
+    <div class="popup" id="popupMenu">
+      <div class="popup-header" id="popupHeader">Add Freight Charges</div>
+      <a href="#" data-value="1">Add 1</a>
+      <a href="#" data-value="5">Add 5</a>
+      <a href="#" data-value="10">Add 10</a>
+      <a href="#" data-value="20">Add 20</a>
+      <a href="#" data-value="30">Add 30</a>
+    </div>
+  </div>
+
+  <script>
+    const button = document.getElementById("freightButton");
+    const popup = document.getElementById("popupMenu");
+    const popupHeader = document.getElementById("popupHeader");
+
+    // Toggle popup visibility
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      popup.classList.toggle("show");
+    });
+
+    // Close popup when clicking outside
+    document.addEventListener("click", () => {
+      popup.classList.remove("show");
+    });
+
+    // Prevent popup close when clicking inside
+    popup.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+
+    // Close popup when clicking the header
+    popupHeader.addEventListener("click", () => {
+      popup.classList.remove("show");
+    });
+
+    // Add action for popup options
+    popup.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const value = link.getAttribute("data-value");
+        alert(`You selected: Add ${value}`);
+        popup.classList.remove("show");
+      });
+    });
+  </script>
+</body>
+</html>
