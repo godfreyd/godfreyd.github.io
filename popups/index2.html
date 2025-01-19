@@ -5,21 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popup Example</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
     /* Button styling */
     .btn {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
+      background: linear-gradient(to bottom, #00924d, #14b369);
+      padding: 2px 10px;
       border-radius: 5px;
-      position: relative;
+      border: 2px solid #14b369;
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+      cursor: pointer;
       min-width: 130px;
     }
 
@@ -33,7 +29,8 @@
       position: absolute;
       top: 0;
       right: 0;
-      background: linear-gradient(180deg, #28a745, #7cd97d);
+      color: #000;
+      background: linear-gradient(to bottom, #dfffd6, #fff);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
       z-index: 1000;
@@ -44,30 +41,33 @@
       display: block;
     }
 
-    /* Duplicate button text */
     .popup .popup-header {
-      padding: 5px 10px;
-      font-size: 12px;
-      color: white;
+      padding: 2px 10px;
+      border: 2px solid transparent;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #000;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
       cursor: pointer;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .popup .popup-header:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
-    /* Options inside popup */
     .popup a {
       display: block;
       padding: 8px 15px;
-      color: white;
+      color: #000;
       text-decoration: none;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .popup a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.7);
     }
   </style>
 </head>
